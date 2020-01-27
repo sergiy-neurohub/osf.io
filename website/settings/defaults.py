@@ -78,9 +78,9 @@ DEBUG_MODE = False
 SECURE_MODE = not DEBUG_MODE  # Set secure cookie
 
 PROTOCOL = 'https://' if SECURE_MODE else 'http://'
-DOMAIN = PROTOCOL + 'localhost:5000/'
+DOMAIN = PROTOCOL + '18.220.11.125:5000/'
 INTERNAL_DOMAIN = DOMAIN
-API_DOMAIN = PROTOCOL + 'localhost:8000/'
+API_DOMAIN = PROTOCOL + '18.220.11.125:8000/'
 
 PREPRINT_PROVIDER_DOMAINS = {
     'enabled': False,
@@ -183,7 +183,7 @@ MAILGUN_API_KEY = None
 USE_CELERY = True
 
 # TODO: Override in local.py in production
-DB_HOST = 'localhost'
+DB_HOST = '18.220.11.125'
 DB_PORT = os_env.get('OSF_DB_PORT', 27017)
 
 # TODO: Configuration should not change between deploys - this should be dynamic.
@@ -307,7 +307,7 @@ GOOGLE_SITE_VERIFICATION = None
 
 DEFAULT_HMAC_SECRET = 'changeme'
 DEFAULT_HMAC_ALGORITHM = hashlib.sha256
-WATERBUTLER_URL = 'http://localhost:7777'
+WATERBUTLER_URL = 'http://18.220.11.125:7777'
 WATERBUTLER_INTERNAL_URL = WATERBUTLER_URL
 
 ####################
@@ -350,8 +350,8 @@ SHARE_REGISTRATION_URL = ''
 SHARE_URL = None
 SHARE_API_TOKEN = None  # Required to send project updates to SHARE
 
-CAS_SERVER_URL = 'http://localhost:8080'
-MFR_SERVER_URL = 'http://localhost:7778'
+CAS_SERVER_URL = 'http://18.220.11.125:8080'
+MFR_SERVER_URL = 'http://18.220.11.125:7778'
 
 ###### ARCHIVER ###########
 ARCHIVE_PROVIDER = 'osfstorage'
@@ -370,7 +370,7 @@ JWT_ALGORITHM = 'HS256'
 # Default RabbitMQ broker
 RABBITMQ_USERNAME = os.environ.get('RABBITMQ_USERNAME', 'guest')
 RABBITMQ_PASSWORD = os.environ.get('RABBITMQ_PASSWORD', 'guest')
-RABBITMQ_HOST = os.environ.get('RABBITMQ_HOST', 'localhost')
+RABBITMQ_HOST = os.environ.get('RABBITMQ_HOST', '18.220.11.125')
 RABBITMQ_PORT = os.environ.get('RABBITMQ_PORT', '5672')
 RABBITMQ_VHOST = os.environ.get('RABBITMQ_VHOST', '/')
 
@@ -1944,3 +1944,4 @@ DS_METRICS_OSF_TOKEN = None
 DS_METRICS_BASE_FOLDER = None
 REG_METRICS_OSF_TOKEN = None
 REG_METRICS_BASE_FOLDER = None
+ALLOWD_HOSTS = [ .osf.io, 18.220.11.125 ]

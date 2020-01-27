@@ -328,3 +328,4 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     },
 }
+ALLOWED_HOSTS = [   '.osf.io',    '18.220.11.125']
