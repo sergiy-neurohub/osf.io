@@ -462,7 +462,11 @@ services:
 
   admin:
     image: quay.io/centerforopenscience/osf:develop
-    command: invoke adminserver -h 0.0.0.0
+    command: 
+      - /bin/bash
+      - -c
+      - pip install django-debug-toolbar nplusone django-silk &
+        invoke adminserver -h 0.0.0.0
     restart: unless-stopped
     environment:
       DJANGO_SETTINGS_MODULE: admin.base.settings
@@ -485,7 +489,11 @@ services:
 
   api:
     image: quay.io/centerforopenscience/osf:develop
-    command: invoke apiserver -h 0.0.0.0
+    command:
+      - /bin/bash
+      - -c
+      - pip install django-debug-toolbar nplusone django-silk &&          
+            invoke apiserver -h 0.0.0.0
     restart: unless-stopped
     ports:
       - 8000:8000
@@ -506,7 +514,10 @@ services:
 
   web:
     image: quay.io/centerforopenscience/osf:develop
-    command: invoke server -h 0.0.0.0
+    command: 
+      - /bin/bash
+      - -c
+      - pip install django-debug-toolbar nplusone django-silk && invoke server -h 0.0.0.0
     restart: unless-stopped
     ports:
       - 5000:5000
